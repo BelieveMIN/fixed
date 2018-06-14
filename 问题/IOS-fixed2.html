@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>解决方案示例2 从「其他」内容区域开始触碰屏幕，进行页面滚动，「按钮」消失了。</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        html { background-color: plum; }
+        .other {
+            width: 100%;
+            height: 5rem;
+            line-height: 5rem;
+            text-align: center;
+            background-color: orangered;
+        }
+        .container {
+            padding-bottom: 4rem;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            overflow-y: scroll;
+            background-color: greenyellow;
+            -webkit-overflow-scrolling: touch;
+        }
+        .container div {
+            height: 4rem;
+            line-height: 4rem;
+            text-align: center;
+            border-bottom: solid 2px gray;
+        }
+        .button {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 3rem;
+            line-height: 3rem;
+            text-align: center;
+            background-color: #00b3ee;
+        }
+    </style>
+</head>
+<body>
+<div class="other">其 他</div>
+<div class="container">
+    <div>项目0</div>
+    <div>项目1</div>
+    <div>项目2</div>
+    <div>项目3</div>
+    <div>项目4</div>
+    <div>项目5</div>
+    <div>项目6</div>
+    <div>项目7</div>
+    <div>项目8</div>
+    <div>项目9</div>
+    <div class="button">按 钮</div>
+</div>
+<script>
+    function resetFontSize() {
+        if (navigator.userAgent.indexOf('Mobile') !== -1) {
+            document.documentElement.style.fontSize = document.documentElement.clientWidth / 1440 * 100 + 'px';
+        } else {
+            document.documentElement.style.fontSize = document.documentElement.clientHeight / 1440 * 50 + 'px';
+        }
+    }
+
+    window.addEventListener('resize', resetFontSize, false);
+    resetFontSize();
+
+    var $container = document.querySelector('.container');
+    var $other = document.querySelector('.other');
+    $container.style.height = (document.documentElement.clientHeight - $other.clientHeight) + 'px';
+</script>
+</body>
+</html>

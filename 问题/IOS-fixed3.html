@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>解决方案示例3 「其他」区域直接消失不见了。</title>
+            <style>
+                * {
+                    padding: 0;
+                    margin: 0;
+                }
+                .other {
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    height: 5rem;
+                    line-height: 5rem;
+                    text-align: center;
+                    background-color: orangered;
+                }
+                .container {
+                    padding-top: 5rem;
+                    padding-bottom: 3rem;
+                    width: 100%;
+                    height: 100%;
+                    overflow-y: scroll;
+                    box-sizing: border-box;
+                    background-color: greenyellow;
+                    -webkit-overflow-scrolling: touch;
+                }
+                .container div {
+                    height: 4rem;
+                    line-height: 4rem;
+                    text-align: center;
+                    border-bottom: solid 2px gray;
+                }
+                .button {
+                    bottom: 0;
+                    position: absolute;
+                    width: 100%;
+                    height: 3rem;
+                    line-height: 3rem;
+                    text-align: center;
+                    background-color: #00b3ee;
+                }
+            </style>
+        </head>
+<body>
+<div class="other">其 他</div>
+<div class="container">
+    <div>项目0</div>
+    <div>项目1</div>
+    <div>项目2</div>
+    <div>项目3</div>
+    <div>项目4</div>
+    <div>项目5</div>
+    <div>项目6</div>
+    <div>项目7</div>
+    <div>项目8</div>
+    <div>项目9</div>
+</div>
+<div class="button">按 钮</div>
+<script>
+    function resetFontSize() {
+        if (navigator.userAgent.indexOf('Mobile') !== -1) {
+            document.documentElement.style.fontSize = document.documentElement.clientWidth / 1440 * 100 + 'px';
+        } else {
+            document.documentElement.style.fontSize = document.documentElement.clientHeight / 1440 * 50 + 'px';
+        }
+    }
+    window.addEventListener('resize', resetFontSize, false);
+    resetFontSize();
+
+    var $container = document.querySelector('.container');
+    $container.style.height = (document.documentElement.clientHeight) + 'px';
+</script>
+</body>
+</html>
+</title>
+</head>
+<body>
+
+</body>
+</html>
